@@ -1,0 +1,12 @@
+.editorconfig
+*.exe
+*.dll
+*.so
+*.dylib
+
+*.test
+
+
+*.out
+
+db/
