@@ -39,3 +39,21 @@ func (createOpeningHandler *CreateOpeningRequest) Validate() error {
 	}
 	return nil
 }
+
+type UpdateOpeningRequest struct {
+	Role     string `json:"role"`
+	Company  string `json:"company"`
+	Location string `json:"location"`
+	Remote   *bool  `json:"remote"`
+	Link     string `json:"link"`
+	Salary   int64  `json:"salary"`
+}
+
+func (updateOpeningRequest *UpdateOpeningRequest) Validate() error {
+
+	if updateOpeningRequest.Role != "" || updateOpeningRequest.Company != "" || updateOpeningRequest.Location != "" || updateOpeningRequest.Remote != nil || updateOpeningRequest.Link != "" || updateOpeningRequest.Salary > 0 {
+		return nil
+	}
+
+	return fmt.Errorf("at least one valid field must be provided")
+}
